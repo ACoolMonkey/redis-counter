@@ -4,6 +4,7 @@ import com.hys.redis.counter.demo.config.RedisConfig;
 import com.hys.redis.counter.demo.constant.RedisConstants;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.RedisStringCommands;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -68,7 +69,7 @@ public class Counter {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < dayNum; i++) {
             //保存距今dayNum天数的key的集合
-            sb.append(RedisConstants.ACTIVE_KEY).append(sdf.format(DateUtils.addDays(new Date(), -i)));
+            sb.append(RedisConstants.ACTIVE_KEY).append(sdf.format(DateTime.now().minusDays(i).toDate()));
             pastDaysKey.add(sb.toString());
             sb.delete(0, sb.length());
         }
