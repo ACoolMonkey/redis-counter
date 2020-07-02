@@ -3,7 +3,6 @@ package com.hys.redis.counter.demo;
 import com.hys.redis.counter.demo.config.RedisConfig;
 import com.hys.redis.counter.demo.constant.RedisConstants;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.time.DateUtils;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.RedisStringCommands;
